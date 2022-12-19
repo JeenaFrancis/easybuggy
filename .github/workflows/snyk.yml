@@ -16,5 +16,6 @@ jobs:
         command: auth 'd9d91c5e-154d-4ba1-973b-4c7d530ab1c3'
     - name: Snyk test
       uses: snyk/actions@0.3.0
+      continue-on-error: true
       with:
         command: code test $(pwd)
