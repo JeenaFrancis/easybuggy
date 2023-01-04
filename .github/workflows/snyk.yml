@@ -19,8 +19,9 @@ jobs:
       continue-on-error: true
       with:
         command: code test $(pwd)
-    - name: Upload Snyk test file for GitHub Advanced Security Dashboard
+    - name: Upload Snyk test for GitHub Advanced Security Dashboard
       uses: actions/upload-artifact@v3.1.1
       with:
         name: Snyk test
+        path: Snyk test
         
