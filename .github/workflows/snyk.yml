@@ -17,11 +17,12 @@ jobs:
     - name: Snyk test
       uses: snyk/actions@0.3.0
       continue-on-error: true
+      #with:
+        #command: code test $(pwd)
       with:
-        command: code test $(pwd)
-    - name: Upload Snyk test for GitHub Advanced Security Dashboard
-      uses: actions/upload-artifact@v3.1.1
+          args: --sarif-file-output=snyk.sarif
+    - name: Upload result to GitHub Code Scanning
+      uses: github/codeql-action/upload-sarif@v2
       with:
-        name: Snyk test
-        path: /github/workspace
+          sarif_file: snyk.sarif
         
