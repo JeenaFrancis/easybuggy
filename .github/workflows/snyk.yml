@@ -5,9 +5,9 @@ jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@maven
+      - uses: actions/checkout@v2.6.0
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions@maven
+        uses: snyk/actions@0.3.0
         continue-on-error: true # To make sure that SARIF upload gets called
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
