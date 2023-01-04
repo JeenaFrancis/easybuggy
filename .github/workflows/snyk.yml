@@ -19,7 +19,8 @@ jobs:
       continue-on-error: true
       with:
         command: code test $(pwd)
-    - uses: actions/download-artifact@v3
+    - name: Upload Snyk test file for GitHub Advanced Security Dashboard
+      uses: github/codeql-action/upload-sarif@v2
       with:
-         name: my-artifact
-         path: download
+        name: Snyk test
+        if: always()
